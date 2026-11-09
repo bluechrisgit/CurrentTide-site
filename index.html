@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CurrentTide — Privacy Policy</title>
+<meta name="description" content="How CurrentTide handles location, coordinates and purchases.">
+<style>
+:root {
+  color-scheme: light;
+  --abyss: #041C2C;
+  --deep-sea: #073048;
+  --ocean: #00629B;
+  --shallows: #7ED7F2;
+  --sea-glass: #A8E6DA;
+  --foam: #E4F4FA;
+  --coral: #B23A2C;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 2.5rem 1.25rem 4rem;
+  background: var(--foam);
+  color: var(--deep-sea);
+  font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+}
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #CFE6EF;
+  border-radius: 14px;
+  padding: 2rem 2.25rem 2.5rem;
+  box-shadow: 0 1px 3px rgba(4, 28, 44, .08);
+}
+h1 {
+  margin: 0 0 .35rem;
+  color: var(--abyss);
+  font-size: 1.85rem;
+  letter-spacing: -.02em;
+  border-bottom: 3px solid var(--shallows);
+  padding-bottom: .6rem;
+}
+h2 {
+  margin: 2.2rem 0 .6rem;
+  color: var(--ocean);
+  font-size: 1.2rem;
+  letter-spacing: -.01em;
+}
+p, li { color: #12384C; }
+p { margin: 0 0 1rem; }
+ul { margin: 0 0 1rem; padding-left: 1.35rem; }
+li { margin: .3rem 0; }
+blockquote {
+  margin: 0 0 1.6rem;
+  padding: .85rem 1.1rem;
+  background: var(--foam);
+  border-left: 4px solid var(--sea-glass);
+  border-radius: 0 8px 8px 0;
+  color: #4A6B7C;
+  font-size: .94rem;
+}
+blockquote p:last-child { margin-bottom: 0; }
+code {
+  background: #EAF4F9;
+  color: var(--deep-sea);
+  padding: .12em .38em;
+  border-radius: 4px;
+  font-size: .9em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+a { color: var(--ocean); }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1.2rem;
+  font-size: .95rem;
+}
+th, td {
+  text-align: left;
+  padding: .55rem .7rem;
+  border-bottom: 1px solid #E1EEF4;
+  vertical-align: top;
+}
+th { color: var(--ocean); font-weight: 600; background: #F4FAFD; }
+td:first-child { color: #5A7A8A; white-space: nowrap; }
+footer {
+  max-width: 46rem;
+  margin: 1.25rem auto 0;
+  text-align: center;
+  color: #6A8898;
+  font-size: .85rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root { color-scheme: dark; }
+  body { background: var(--abyss); }
+  main { background: #08283C; border-color: #16455F; box-shadow: none; }
+  h1 { color: var(--foam); }
+  h2 { color: var(--shallows); }
+  p, li { color: #C9E2ED; }
+  th { background: #0C3247; color: var(--shallows); }
+  th, td { border-bottom-color: #16455F; }
+  td:first-child { color: #7FA6BA; }
+  blockquote { background: #0C3247; color: #A8C8D8; }
+  code { background: #0C3247; color: var(--foam); }
+  a { color: var(--shallows); }
+  footer { color: #6E93A8; }
+}
+</style>
+</head>
+<body>
+<main>
+<h1>CurrentTide Privacy Policy</h1>
+<blockquote><p><strong>Canonical copy.</strong> This file is the source of truth for the privacy policy. Three copies must agree: 1. This file. 2. The in-app policy at Settings → Privacy (<code>app/src/main/java/com/currenttide/app/ui/privacy/PrivacyScreen.kt</code>). 3. The Play listing URL, served from <code>docs/index.html</code> by GitHub Pages. After editing here, run <code>./build_privacy_page.py</code> to regenerate (3) and update (2) by hand. CI fails the build if (3) is stale, so the published page can never drift from the policy it claims to be.</p></blockquote>
+<p>CurrentTide is a tide and tidal current companion with no accounts, no ads, no analytics SDKs and no subscription. The supporter pack is an optional one-off purchase: nothing recurring, nothing that expires, and nothing you need in order to read a tide or a current.</p>
+<h2>Location</h2>
+<p>CurrentTide requests <strong>approximate location only</strong> (<code>ACCESS_COARSE_LOCATION</code>). It never asks for precise location. Nearby sorting and the map&#x27;s recenter button use your location while the app is open and visible; there is no background location access.</p>
+<p>Your device&#x27;s location fix is used <strong>on the device only</strong> — it is never transmitted to CurrentTide or to anyone else. The one place your approximate area is disclosed is the map: map tile requests are sent to the tile server for the area currently in view, which is the same as any map app, and after you tap recenter that area is near you.</p>
+<h2>Coordinates sent to data providers</h2>
+<p>Opening a station sends an identifier off-device to fetch data:</p>
+<ul><li><strong>NOAA Tides &amp; Currents</strong> (<code>api.tidesandcurrents.noaa.gov</code>) — US predictions. The request names the station (a gauge ID), not your coordinates.</li><li><strong>Open-Meteo Marine + Forecast</strong> (<code>marine-api.open-meteo.com</code>, <code>api.open-meteo.com</code>) — waves, weather and water data worldwide. These calls send the station&#x27;s coordinates.</li><li><strong>OpenStreetMap tile servers</strong> (<code>tile.openstreetmap.org</code>) — map tiles for the visible area (standard tile request, like any map app)</li></ul>
+<p>These are requests the app makes <strong>directly from your phone</strong>. There is no CurrentTide server in the middle. All of them use HTTPS.</p>
+<p><strong>Tides outside US waters are not in that list, because nothing is sent.</strong> Harmonic constants for 7,748 stations ship inside the app and are summed on the phone, so a prediction for a port in any of 120 countries is computed without a network request at all. NOAA is contacted only for stations in its own waters. There is no API key anywhere in the app.</p>
+<h2>Tidal currents</h2>
+<p>Tidal currents are computed <strong>entirely on the device</strong> and nothing about them is transmitted. Harmonic constants for 2,561 current stations ship inside the app and are summed locally, which is what lets the app report slack water at a narrows with no signal. They are never sent to a provider, and no provider is contacted to produce them.</p>
+<p>Current stations cover US waters only, because NOAA CO-OPS is the only agency publishing harmonic current constants openly. That is a coverage limit, not a privacy one.</p>
+<h2>Purchases</h2>
+<p>If you buy the supporter pack or send a tip, the transaction is handled entirely by Google Play. CurrentTide never sees your name, your email, your card or your billing address, and there is no CurrentTide server involved in it.</p>
+<p>What the app reads back is only <em>whether</em> a purchase exists, so that supporter features can be unlocked and so that a purchase survives a reinstall. That answer is cached on your device. It is not sent anywhere, and it is not linked to anything else the app stores — there is no account, so there is no identifier to link it to.</p>
+<p>A purchase has no expiry and no recurring charge, so there is nothing to cancel and no renewal to manage. Refunds are handled by Google Play and are reflected the next time the app checks.</p>
+<h2>Data safety summary</h2>
+<p>The table below is the Play Store Data safety form, in words. If it and the app ever disagree, the app is wrong.</p>
+<table><thead><tr><th>Data</th><th>Approximate location</th></tr></thead><tbody><tr><td>Collected</td><td>Yes</td></tr><tr><td>Shared with</td><td>OpenStreetMap (tile server), and the data providers above for the station you opened</td></tr><tr><td>Purpose</td><td>App functionality</td></tr><tr><td>Optional</td><td>Yes — the app is fully usable without location</td></tr><tr><td>Encrypted in transit</td><td>Yes (HTTPS)</td></tr><tr><td>Sold</td><td>No</td></tr><tr><td>Purchases</td><td>Handled by Google Play, which is the merchant of record. CurrentTide collects no purchase data; it reads only whether a purchase exists, to unlock supporter features, and caches that answer on the device</td></tr><tr><td>User can request deletion</td><td>Not applicable — there are no accounts and nothing is retained server-side</td></tr></tbody></table>
+<p>Precise location is <strong>not</strong> collected or transmitted. Location data is not used for advertising, and there are no ads. It is not used for analytics, because there is no analytics SDK.</p>
+<h2>On your device</h2>
+<p>Favorites, units, theme and alert prefs stay on the device, and the bundled tide constants are part of the app. There is no API key to store: the app has none.</p>
+<h2>Cached responses</h2>
+<p>Tide tables, water levels, waves and forecasts are stored in the app&#x27;s private cache directory on your phone, so the app and its home-screen widgets can show the <strong>last thing it successfully fetched</strong> when there is no signal — at a slipway or a bar with no bars, which is where knowing the tide matters most.</p>
+<p>Those copies never leave the device, are not linked to any account, and are cleared by the operating system when it needs the space. They are app data in the ordinary sense: nothing is uploaded, and there is no CurrentTide server that could hold them.</p>
+<p>Caches expire on their own. A published tide table is kept until the end of the date range it was requested for, and is never reused for a different day. An observed water level or a forecast expires within minutes to hours, and a stale copy is only ever shown when a fresh fetch has <strong>failed</strong> — never in preference to a working network connection.</p>
+<p>NOAA&#x27;s service asks that its responses not be stored (<code>Cache-Control: no-store</code>). CurrentTide caches them anyway, deliberately, because NOAA is the only source that predicts US tides and it is also the one that is unreachable offline — so honouring that header would leave the app unable to work at the place it is meant to be used. This is a deliberate departure from what the service requests, stated here rather than buried.</p>
+<h2>Notifications</h2>
+<p>Daily high-tide reminders are local notifications scheduled on the device. No data leaves the phone for alerts.</p>
+<h2>Generated artwork</h2>
+<p>The app&#x27;s icon, splash artwork, theme illustration and Play Store graphics (feature graphic and screenshots) were produced with generative AI. The app itself contains no generative AI features and generates no content at runtime. Store-listing assets are declared as AI-generated in Play Console.</p>
+<h2>Contact</h2>
+<p>Questions: file an issue on the CurrentTide repository.</p>
+<p>Station suggestions and feature requests go through your own email app to a personal inbox read by the app&#x27;s maintainer. The sent message carries the app version, your request&#x27;s reference, the tier that sent it (Free, Supporter or Patron, so patron requests can be worked through first) and whatever you wrote — for a station, its name, country or region, and coordinates if you included them. Your email address is disclosed by your mail app, not collected by CurrentTide, and nothing about the request is sent anywhere until you send it.</p>
+</main>
+<footer>CurrentTide — no accounts, no ads, no analytics.</footer>
+</body>
+</html>
